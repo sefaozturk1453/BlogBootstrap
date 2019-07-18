@@ -15,6 +15,10 @@ class CreateYorumsTable extends Migration
     {
         Schema::create('yorums', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('email');
+            $table->string('yorum',300);
+            $table->unsignedBigInteger('yazi_id');
+            $table->foreign("yazi_id")->references("id")->on("yazis");
             $table->timestamps();
         });
     }

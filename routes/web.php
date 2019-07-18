@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "YaziController@index");
+
+Route::get('/yazi/{url}', "YaziController@yazi");
 
 Auth::routes();
 

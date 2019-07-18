@@ -15,6 +15,11 @@ class CreateYazisTable extends Migration
     {
         Schema::create('yazis', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string("baslik");
+            $table->text("icerik");
+            $table->unsignedBigInteger("kategori_id");
+            $table->foreign("kategori_id")->references("id")->on("kategoris");
+            $table->string("url");
             $table->timestamps();
         });
     }
